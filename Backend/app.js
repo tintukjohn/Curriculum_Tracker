@@ -7,7 +7,7 @@ var morgan = require('morgan')
 const app = new express()
 
 require('dotenv').config()
-require('./Middlewares/mongoDB')   //to init mongoDB
+require('./middlewares/mongoDB')   //to init mongoDB
 
 app.use(cors())  // to connect frontend and backend without any disturbance
 app.use(express.json())   // to receive data from front end
