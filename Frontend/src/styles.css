@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Poltawski Nowy', serif;
+   
+}
+
+:root{
+    --primary-color:#3FC060;
+    --secondary-color:#162328;
+}
+
+body{
+   
+    height: 100vh;
+    
+    
+}
