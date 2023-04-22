@@ -11,6 +11,10 @@ import { FacultyMainComponent } from './faculty/faculty-main/faculty-main.compon
 import { ResponseFormComponent } from './faculty/response-form/response-form.component';
 import { FacultyFooterComponent } from './faculty/faculty-footer/faculty-footer.component';
 import { FacultyDashboardComponent } from './faculty/faculty-dashboard/faculty-dashboard.component';
+import { AdminDashboardComponent } from './pages/admindashboard/admindashboard.component';
+import { SidenavComponent } from './pages/sidenav/sidenav.component';
+import { FormComponent } from './pages/form/form.component';
+import { SubmissionsComponent } from './pages/submissions/submissions.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
@@ -22,7 +26,11 @@ const routes: Routes = [
   {path: 'faculty-header', component:FacultyHeaderComponent},
   {path: 'faculty-dashboard', component:FacultyDashboardComponent},
   {path: 'response-form/:id', component:ResponseFormComponent},
-  {path: 'faculty-footer', component:FacultyFooterComponent}
+  {path: 'faculty-footer', component:FacultyFooterComponent},
+  {path: 'admindashboard', component: AdminDashboardComponent},
+  {path: 'sidenav', component: SidenavComponent},
+  {path: 'form', component: FormComponent},
+  {path: 'submission', component : SubmissionsComponent}
 ];
 
 @NgModule({

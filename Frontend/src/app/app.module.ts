@@ -13,6 +13,10 @@ import { FacultyHeaderComponent } from './faculty/faculty-header/faculty-header.
 import { FacultyFooterComponent } from './faculty/faculty-footer/faculty-footer.component';
 import { ResponseFormComponent } from './faculty/response-form/response-form.component';
 import { FacultyDashboardComponent } from './faculty/faculty-dashboard/faculty-dashboard.component';
+import { AdminDashboardComponent } from './pages/admindashboard/admindashboard.component';
+import { FormComponent } from './pages/form/form.component';
+import { SidenavComponent } from './pages/sidenav/sidenav.component';
+import { SubmissionsComponent } from './pages/submissions/submissions.component';
 import { ApiService } from './api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -31,7 +35,11 @@ import { FormsModule } from '@angular/forms';
     FacultyHeaderComponent,
     FacultyFooterComponent,
     ResponseFormComponent,
-    FacultyDashboardComponent
+    FacultyDashboardComponent,
+    AdminDashboardComponent,
+    FormComponent,
+    SidenavComponent,
+    SubmissionsComponent
   ],
   imports: [
     BrowserModule,
