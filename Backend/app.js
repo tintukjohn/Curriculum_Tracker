@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+var bodyParser = require('body-parser');
 const logger = require('morgan')   // for seeing api calls in terminal
 const PORT = 3000
 var morgan = require('morgan')
@@ -14,6 +15,11 @@ app.use(express.json())   // to receive data from front end
 app.use(express.urlencoded({extended:true}))
 app.use(logger('dev'))
 
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+ 
+var multer = require('multer');
 
 //api
 const api = require('./routes/api')

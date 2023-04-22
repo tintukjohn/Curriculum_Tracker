@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'faculty-main', component:FacultyMainComponent},
   {path: 'faculty-header', component:FacultyHeaderComponent},
   {path: 'faculty-dashboard', component:FacultyDashboardComponent},
-  {path: 'response-form', component:ResponseFormComponent},
+  {path: 'response-form/:id', component:ResponseFormComponent},
   {path: 'faculty-footer', component:FacultyFooterComponent}
 ];
 
