@@ -19,7 +19,7 @@ import { SidenavComponent } from './pages/sidenav/sidenav.component';
 import { SubmissionsComponent } from './pages/submissions/submissions.component';
 import { ApiService } from './api.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -45,7 +45,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

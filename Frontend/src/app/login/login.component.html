@@ -2,27 +2,35 @@
     <div class="container">
         <div class="row no-gutters">
             <div class="col-lg-5">
-                <img src="../../assets/img/curriculum.webp"  class="img-fluid"alt="">
+                <img src="../../assets/img/curriculum.webp"  class="img-fluid" alt="">
             </div>
             <div class="col-lg-7 px-5 pt-5">
                 <h1 style="padding: 5px;">Sign into your account</h1>
-                <form>
+                <form [formGroup]="signin">
                     <div class="form-row">
                         <div class="col-lg-7">
-                            <input type="email" placeholder="Email-Address"class="form-control my-2 p-2">
+                            <input type="email" placeholder="Email-Address" class="form-control my-2 p-2" name="email" formControlName="email" [ngClass]="{'is-invalid':login.email.errors&&(login.email.touched||login.email.dirty)}">
+                        </div>
+                        <div *ngIf="login.email.invalid&&(login.email.touched||login.email.dirty)" class="errormsg">
+                            <p *ngIf="login.email.errors.required">Field Cannot be empty</p>
+                            <p *ngIf="login.email.errors.email">Please ensure the right pattern</p>
                         </div>
                     </div>
                     
 
                     <div class="form-row">
                         <div class="col-lg-7">
-                            <input type="password" placeholder="******"class="form-control my-2 p-2">
+                            <input type="password" placeholder="******"class="form-control my-2 p-2" formControlName="password" [ngClass]="{'is-invalid:':login.password.errors&&(login.password.touched||login.password.dirty)}">
+                            <div *ngIf="login.password.invalid&&(login.password.touched||login.password.dirty)" class="errormsg">
+                                <p *ngIf="login.password.errors.required">Field Cannot be empty</p>
+                                <p *ngIf="login.password.errors.minlength">Minimum length is 8</p>
+                            </div>
                         </div>
                         
                     </div>
                     <div class="form-row">
                         <div class="col-lg-7">
-                          <button type="button" class="btn1 mt-3 mb-5">Login</button>
+                          <button type="button" class="btn1 mt-3 mb-5" [disabled]="!signin.valid">Login</button>
                         </div>
                     </div>
                     <a href="#">Forgot password</a>
