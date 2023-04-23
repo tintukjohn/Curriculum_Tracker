@@ -9,14 +9,18 @@
   
                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
   
-                  <form class="mx-1 mx-md-4">
+                  <form [formGroup]="signup" class="mx-1 mx-md-4">
   
                     <div class="d-flex flex-row align-items-center mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
                           </svg>
                       <div class="form-outline flex-fill mb-0 ms-1">
-                        <input type="text" id="form3Example1c" class="form-control" placeholder="Your name"/>
+                        <input type="text" id="form3Example1c" class="form-control" placeholder="Your name" formControlName="name" [ngClass]="{'is-invalid':register.name.errors&&(register.name.touched||register.name.dirty)}"/>
+                        <div *ngIf="register.name.invalid&&(register.name.touched||register.name.dirty)" class="errormsg">
+                          <p *ngIf="register.name.errors.required">Field Cannot be empty</p>
+                          <p *ngIf="register.name.errors.pattern">Only alphabets are allowed</p>
+                        </div>
                       </div>
                     </div>
 
@@ -25,7 +29,11 @@
                             <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
                         </svg>
                       <div class="form-outline flex-fill mb-0 ms-1">
-                        <input type="email" id="form3Example3c" class="form-control" placeholder="Your email"/>
+                        <input type="email" id="form3Example3c" class="form-control" placeholder="Your email" formControlName="email" [ngClass]="{'is-invalid':register.email.errors&&(register.email.touched||register.email.dirty)}"/>
+                        <div *ngIf="register.email.invalid&&(register.email.touched||register.email.dirty)" class="errormsg">
+                          <p *ngIf="register.email.errors.required">Field Cannot be empty</p>
+                          <p *ngIf="register.email.errors.email">Please ensure the right pattern</p>
+                        </div>
                       </div>
                     </div>
   
@@ -34,7 +42,11 @@
                             <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h5v-1a1.9 1.9 0 0 1 .01-.2 4.49 4.49 0 0 1 1.534-3.693C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Zm7 0a1 1 0 0 1 1-1v-1a2 2 0 1 1 4 0v1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2Zm3-3a1 1 0 0 0-1 1v1h2v-1a1 1 0 0 0-1-1Z"/>
                           </svg>
                       <div class="form-outline flex-fill mb-0 ms-1">
-                        <input type="password" id="form3Example4c" class="form-control" placeholder="Password"/>
+                        <input type="password" id="form3Example4c" class="form-control" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid:':register.password.errors&&(register.password.touched||register.password.dirty)}"/>
+                        <div *ngIf="register.password.invalid&&(register.password.touched||register.password.dirty)" class="errormsg">
+                          <p *ngIf="register.password.errors.required">Field Cannot be empty</p>
+                          <p *ngIf="register.password.errors.minlength">Minimum length is 8</p>
+                        </div>
                       </div>
                     </div>
   
@@ -43,7 +55,11 @@
                             <path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
                           </svg>
                       <div class="form-outline flex-fill mb-0 ms-1">
-                        <input type="password" id="form3Example4cd" class="form-control" placeholder="Repeat password"/>
+                        <input type="password" id="form3Example4cd" class="form-control" placeholder="Repeat password" formControlName="passwordConfirm" [ngClass]="{'is-invalid:':register.passwordConfirm.errors&&(register.passwordConfirm.touched||register.passwordConfirm.dirty)}"/>
+                        <div *ngIf="register.passwordConfirm.invalid&&(register.passwordConfirm.touched||register.passwordConfirm.dirty)" class="errormsg">
+                          <p *ngIf="register.passwordConfirm.errors.required">Field Cannot be empty</p>
+                          <p *ngIf="register.passwordConfirm.errors.minlength">Minimum length is 8</p>
+                        </div>
                       </div>
                     </div>
   

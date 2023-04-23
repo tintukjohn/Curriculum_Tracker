@@ -10,7 +10,7 @@ export class RegisterComponent implements OnInit{
     name:new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]),
     email:new FormControl('', [Validators.email, Validators.required]),
     password:new FormControl('', [Validators.required, Validators.minLength(8)]),
-    passwordConfirm:new FormControl('',[Validators.required])
+    passwordConfirm:new FormControl('',[Validators.required, Validators.minLength(8)])
   });
 
   constructor(){}
