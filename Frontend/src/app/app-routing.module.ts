@@ -15,6 +15,7 @@ import { AdminDashboardComponent } from './pages/admindashboard/admindashboard.c
 import { SidenavComponent } from './pages/sidenav/sidenav.component';
 import { FormComponent } from './pages/form/form.component';
 import { SubmissionsComponent } from './pages/submissions/submissions.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path: 'admindashboard', component: AdminDashboardComponent},
   {path: 'sidenav', component: SidenavComponent},
   {path: 'form', component: FormComponent},
-  {path: 'submission', component : SubmissionsComponent}
+  {path: 'submission', component : SubmissionsComponent},
+  {path: 'register', component: RegisterComponent}
 ];
 
 @NgModule({

@@ -20,6 +20,7 @@ import { SubmissionsComponent } from './pages/submissions/submissions.component'
 import { ApiService } from './api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -39,7 +40,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AdminDashboardComponent,
     FormComponent,
     SidenavComponent,
-    SubmissionsComponent
+    SubmissionsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
