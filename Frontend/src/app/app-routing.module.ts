@@ -16,6 +16,8 @@ import { SidenavComponent } from './pages/sidenav/sidenav.component';
 import { FormComponent } from './pages/form/form.component';
 import { SubmissionsComponent } from './pages/submissions/submissions.component';
 import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
@@ -32,7 +34,10 @@ const routes: Routes = [
   {path: 'sidenav', component: SidenavComponent},
   {path: 'form', component: FormComponent},
   {path: 'submission', component : SubmissionsComponent},
-  {path: 'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent},
+  {path: 'navbar', component: NavbarComponent},
+  {path: 'footer', component: FooterComponent}
+  
 ];
 
 @NgModule({

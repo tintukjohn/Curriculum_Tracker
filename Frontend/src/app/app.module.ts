@@ -21,6 +21,9 @@ import { ApiService } from './api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+
 
 
 
@@ -41,7 +44,10 @@ import { RegisterComponent } from './register/register.component';
     FormComponent,
     SidenavComponent,
     SubmissionsComponent,
-    RegisterComponent
+    RegisterComponent,
+    NavbarComponent,
+    FooterComponent
+   
   ],
   imports: [
     BrowserModule,
