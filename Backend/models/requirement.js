@@ -1,3 +1,5 @@
+// This Schema file is to store requirements data from Admin's side
+
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 

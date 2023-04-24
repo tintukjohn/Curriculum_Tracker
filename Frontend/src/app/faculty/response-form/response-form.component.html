@@ -1,21 +1,21 @@
-<div class="container pt-5 mt-5">
+<div class="container pt-4 mt-4">
     <h1 class="text-center">Response Form</h1>
-    <div class="row justify-content-center pt-5 mt-5">
+    <div class="row justify-content-center pt-3 mt-3">
         <div class="col-6">
-            <form >
+            <form #responseform="ngForm" (ngSubmit)="onSubmit()">
                 <div class="form-outline mb-3">
-                    <textarea class="form-control" id="textAreaExample" rows="4" name="comments"
-                       formControlName="Book" ></textarea>
                     <label class="form-label" for="textAreaExample">Comments</label>
+                    <textarea class="form-control" id="textAreaExample" rows="4" name="comments"
+                       formControlName="comments" required></textarea>
                 </div>
 
-                <div class="form-group mb-3">
-                    <label for="exampleInputfile1" class="form-label">Cover Image</label>
-                    <input type="file" class="form-control" id="img" name="image" placeholder="Add image URL/address"
-                        formControlName="image" (change)="onFileSelect($event)" required>
+                <div class="form-group mb-3" >
+                    <label for="exampleInputfile1" class="form-label">Document</label>
+                    <input type="file" class="form-control" id="doc" name="doc"
+                        formControlName="doc" (change)="onFileSelect($event)" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
