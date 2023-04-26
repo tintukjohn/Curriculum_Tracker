@@ -1,17 +1,27 @@
-import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component , OnInit} from '@angular/core';
+import { FormBuilder,FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-response-form',
   templateUrl: './response-form.component.html',
   styleUrls: ['./response-form.component.css']
 })
-export class ResponseFormComponent {
+export class ResponseFormComponent implements OnInit{
+  
+  
+  
 
   constructor(private router:Router,private api:ApiService,
-    private fb:FormBuilder,private route:ActivatedRoute){}
+             private fb:FormBuilder,private route:ActivatedRoute,
+             private http: HttpClient){}
+
+  ngOnInit(): void {
+      
+    }
+
 
   responseForm = this.fb.group(
     {
@@ -19,14 +29,19 @@ export class ResponseFormComponent {
 
       file: ['', Validators.required]
     })
+  
+   
 
+  onFileSelect(event:any){
 
-  onFileSelect(event: any){
+}
+   
+    
+    
 
-  }
-
-  onSubmit(){
-
-  }
+  onSubmit() {
+    
+    }
+    
 
 }

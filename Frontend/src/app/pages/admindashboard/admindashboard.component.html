@@ -1,8 +1,13 @@
-<app-sidenav></app-sidenav>
-
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
+
+
+
+
+<app-sidenav></app-sidenav>
+
+
 
 <body>
   
@@ -16,9 +21,34 @@
       </span>
       </div>
       </h1>
-</div>
+</div><br><br>
 
 <!-- Table for Requirement Form -->
+
+
+
+
+<h1 class = "change" style="text-align:center">Requirement Data</h1><br>
+<h3 style="text-align:center">Find out latest datas submitted for the Curriculum</h3><br>
+<h4 style="text-align:center">The datas are given in the order of Requirement Name, Area of training, Institution/Corporation, Category and Duration of Training</h4><br>
+
+<div class="columns" *ngFor="let requirement of requirements">
+  <ul class="price">
+    <li class="header">{{requirement.name}}</li>
+    <li class="grey">{{requirement.area}}</li>
+    <li>{{requirement.inst}}</li>
+    <li>{{requirement.category}}</li>
+    <li>{{requirement.duration}}</li>
+   
+   
+  </ul>
+</div>
+
+
+
+
+
+
 
 
 

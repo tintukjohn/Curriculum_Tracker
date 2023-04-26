@@ -108,4 +108,66 @@
 
   /* CSS For Table */
 
-  
+
+
+  .columns {
+    float: left;
+    width: 31%;
+    padding: 10px;
+    /* margin-left: 90px; */
+}
+
+.price {
+    list-style-type: none;
+    border: 2px solid #eef;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+.change{
+  color: #1D3557;
+  font-size: 40px;
+}
+
+.price:hover {
+    box-shadow: 0 8px 11px 0 rgba(0,0,0,0.5);
+}
+
+.price .header {
+    background-color: #444;
+    color: white;
+    font-size: 25px;
+}
+
+.price .sticky
+{
+  background-color:#64b5f6;
+}
+.price li {
+    border-bottom: 1px solid #eef;
+    padding: 18px;
+    text-align: center;
+}
+
+.price .grey {
+    background-color: #eef;
+    font-size: 20px;
+}
+
+.button {
+    background-color: #64b5f6;
+    
+    padding: 12px 27px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 28px;
+   border: none;
+    color: white;
+}
+
+@media only screen and (max-width: 600px) {
+    .columns {
+        width: 100%;
+    }
+}

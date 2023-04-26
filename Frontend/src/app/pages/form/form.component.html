@@ -15,7 +15,7 @@
  
 
 <body>
-  
+ 
   <div class="login-root">
     <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
       <div class="loginbackground box-background--white padding-top--64">
@@ -54,21 +54,22 @@
         <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
           <h1><a href="http://blog.stackfindover.com/" rel="dofollow">Requirement Form</a></h1>
         </div>
+        
         <div class="formbg-outer">
           <div class="formbg">
             <div class="formbg-inner padding-horizontal--48">
               <span class="padding-bottom--15">Add Requirements Here</span>
-              <form id="stripe-login">
+              <form id="stripe-login" [formGroup]="reqform" (ngSubmit)="onSubmit()">
                 <div class="field padding-bottom--24">
                   <label for="name">Name of Requirement</label>
-                  <input type="text" name="name">
+                  <input type="text" name="name" formControlName = "name">
                 </div>
                 <div class="field padding-bottom--24">
                   <div class="grid--50-50">
                     <label for="area">Area of training</label>
                     
                   </div>
-                  <select class="form-control" id="area" name="area" required>
+                  <select class="form-control" id="area" name="area" formControlName = "area">
                     <option value="" disabled selected>Select an option</option>
                     <option value="FSD">FSD</option>
                     <option value="ML-AI">ML-AI</option>
@@ -81,12 +82,12 @@
 
                 <div class="field padding-bottom--24">
                   <label for="institution">Institution/Corporate office from where the requirement came:</label>
-                  <input type="text"  id="institution" name="institution" required>
+                  <input type="text"  id="institution" name="inst" formControlName = "inst">
                 </div>
 
                 <div class="field padding-bottom--24">
                   <label for="category">Category of Requirement:</label>
-                  <select class="form-control" id="category" name="category" required>
+                  <select class="form-control" id="category" name="category" formControlName = "category">
                     <option value="" disabled selected>Select an option</option>
                     <option value="Retail">Retail</option>
                     <option value="Academic">Academic</option>
@@ -96,7 +97,7 @@
                 </div>
                 <div class="field padding-bottom--24">
                   <label for="hour">No. of Hours of training</label>
-                  <input type="number" name="hour">
+                  <input type="number" name="duration"formControlName = "duration">
                 </div>
                 <div class="field padding-bottom--24">
                   <label for="file">Upload Reference file</label>
@@ -104,7 +105,7 @@
                 </div>
                 
                 <div class="field padding-bottom--24">
-                  <input type="submit" name="submit" value="Continue">
+                  <input type="submit" name="submit" value="Submit">
                 </div>
                 
               </form>
@@ -115,6 +116,7 @@
       </div>
     </div>
   </div>
+
 </body>
 
 
