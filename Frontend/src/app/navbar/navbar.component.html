@@ -1,33 +1,22 @@
-<!-- navbar start -->
-
-<nav class="navbar navbar-expand-lg navbar-light ">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink=""></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active"  routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}" >Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/about" routerLinkActive="active-link">About</a>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/login" routerLinkActive="active-link">Login</a>
-  
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/faculty-main" routerLinkActive="active-link">Faculty</a>
-          
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/contact" routerLinkActive="active-link">Contact</a>
-          </li>
-        </ul>
-      </div>
+<header>
+  <div class="navbar">
+    <div class="logo"><a href="">Curriculum-Tracker</a></div>
+    <ul class="links">
+      <li><a routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="active-link">About</a></li>
+      <li><a routerLink="/faculty-main" routerLinkActive="active-link">Faculty</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active-link">Contact</a></li>
+    </ul>
+    <a routerLink="/login" routerLinkActive="active-link" class="action_btn">Get Started</a>
+    <div class="toggle-btn" onclick="myfunction()">
+      <i class="bi bi-chevron-bar-down"></i>
     </div>
-  </nav>
-
-  <!-- navbar end -->
-
+  </div>
+  <div class="dropdown_menu open">
+    <li><a routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+    <li><a routerLink="/about" routerLinkActive="active-link">About</a></li>
+    <li><a routerLink="/faculty-main" routerLinkActive="active-link">Faculty</a></li>
+    <li><a routerLink="/contact" routerLinkActive="active-link">Contact</a></li>
+    <li><a routerLink="/login" routerLinkActive="active-link" class="action_btn">Get Started</a></li>
+  </div>
+</header>

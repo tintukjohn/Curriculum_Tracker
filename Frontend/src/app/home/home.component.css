@@ -1,33 +1,7 @@
-.banner{
-    background-image: url(../../assets/img/curriculum.webp);
-     height: 600px;
-    
-     object-position: center;
-     object-fit: cover;
-      background-position: center top;
-     background-repeat: no-repeat;
-     background-size: cover; 
- } 
- 
-  .banner h1{
-     color: black;
-     font-size: 50px;
-     font-weight: bold;
-     top: 30%;
-     left: 70%;
-    
-     position: absolute;
- }
- .home img{
-     width: 100%;
-     
- }
- 
- @media screen and (max-width:600px){
- 
-     .banner{
-         height: 700px;
- 
-     }
-     
- } 
+div{
+    height: 100vh;
+    background-color: #000;
+    background-image: url('https://cdn.wallpapersafari.com/9/46/WBe5gm.jpg');
+    background-size: cover;
+    background-position: center;
+}
