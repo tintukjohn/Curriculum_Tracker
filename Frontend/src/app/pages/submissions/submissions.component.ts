@@ -32,6 +32,20 @@ export class SubmissionsComponent {
     })
   }
   
+ delete(id:any){
+  this.apiService.deleteResponse(id).subscribe(res => {
+    console.log('Response from deleteResponse():', res);
+    if (res) {
+      this.responses = this.responses.filter((response: any) => response.id !== id);
+      console.log('Updated Responses array:', this.responses);
+      alert('Response deleted successfully!');
+      this.getData(); // Refresh the data from the server
+    }
+  })
+ }
+
+
+
   }
 
   

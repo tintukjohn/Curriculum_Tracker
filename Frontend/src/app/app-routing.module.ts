@@ -38,7 +38,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'navbar', component: NavbarComponent},
   {path: 'footer', component: FooterComponent},
-  {path: 'edit-modal', component: EditModalComponent}
+  {path: 'edit-modal/:id', component: EditModalComponent}
   
 ];
 

@@ -42,6 +42,30 @@ router.post('/require', async(req,res)=>{
     }
 })
 
+// require update
+
+router.put('/require', async(req,res) => {
+
+    try {
+        
+        let id = req.params.id
+        let item = {
+            name: req.body.name,
+            area: req.body.area,
+            inst: req.body.inst,
+            category: req.body.category,
+            duration: req.body.duration
+        }
+
+        let updateData = {$set : item}
+        let updateReq = await REQ_DATA.findByIdAndUpdate({'id' : id}, updateData)
+        res.send(updateReq)
+
+    } catch (error) {
+        console.log(error);
+    }
+})
+
 //response list
 router.get('/responselist',async(req,res)=>{
     try {
@@ -71,6 +95,38 @@ router.post('/response', async(req,res)=>{
         console.log(error);
     }
 })
+
+//response delete
+router.delete('/response/:id', async(req,res)=>{
+
+    try {
+    let id = req.params.id;
+
+    const deleteResponse = await RES_DATA.findByIdAndDelete(id)
+    res.send(deleteResponse)
+    } catch (error) {
+       console.log(error)
+    }
+})
+
+
+// response update
+router.put('/response/:id', async(req,res) => {
+
+    try {
+        
+        let id = req.params.id
+        console.log(id);
+        let updateData = req.body
+        let updateResponse = await RES_DATA.findByIdAndUpdate({_id:id}, {$set:updateData})
+        res.send(updateResponse)
+
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+
 
 
 module.exports = router
