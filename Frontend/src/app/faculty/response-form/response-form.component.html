@@ -3,6 +3,7 @@
     <div class="row justify-content-center pt-3 mt-3">
         <div class="col-6">
             <form #responseform="ngForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="resform" (ngSubmit) = "onvalueSubmit()">
                 <div class="form-outline mb-3">
                     <label class="form-label" for="textAreaExample">Comments</label>
                     <textarea class="form-control" id="textAreaExample" rows="4" name="comments"
@@ -15,8 +16,9 @@
                         formControlName="doc" (change)="onFileSelect($event)" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary" routerLink="/faculty-dashboard">Send</button>
+                <button type="submit" class="btn btn-primary" >Send</button>
             </form>
+        </form>
         </div>
     </div>
 </div>

@@ -1,32 +1,37 @@
 <app-sidenav></app-sidenav>
 
+<head>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+</head>
+
 <h1>
 	Submitted Curriculums
 </h1>
 
+<div class="container pt-5 mt-5">
 <div class="table-container">
 	<table class="table-rwd">
 		<tr>
-			<th></th>
+			<th>No.</th>
 			<th>Comments</th>
 			<th>File Uploaded</th>
-			
 			<th>Edit</th>
 			<th>Approve</th>
 			
 		</tr>
 
-		<tr  >
-			<td>1</td>
-			<td>Comments</td>
-			<td>Document</td>
-			<!-- <td><a [href]="response.file">{{ response.file }}</a></td> -->
-          
-			<td><button>Edit</button></td>
-			<td><button>Approve</button></td>
+		<tr *ngFor = "let response of responses; let i = index" >
+			<td>{{i+1}}</td>
+			<td>{{response.comments}}</td>
+			<td>{{response.doc}}</td>
+			<td><button class="button1"  >Edit</button></td>
+			<td><button class="button2">Approve</button></td>
 			
 		</tr>
+		
 
 		
 	</table>
 </div>
+</div>
+

@@ -4,6 +4,7 @@
     font-family: 'Arvo';
     
   } 
+
   
   body{
     background-color: #f0e8e8;
@@ -114,6 +115,7 @@
     float: left;
     width: 31%;
     padding: 10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     /* margin-left: 90px; */
 }
 
@@ -139,7 +141,9 @@
     color: white;
     font-size: 25px;
 }
-
+.white{
+  font-size: 25px;
+}
 .price .sticky
 {
   background-color:#64b5f6;
@@ -152,7 +156,7 @@
 
 .price .grey {
     background-color: #eef;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .button {
@@ -170,4 +174,31 @@
     .columns {
         width: 100%;
     }
+}
+
+/* CSS for search bar */
+
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.search-box input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid rgb(217, 148, 148);
+  border-radius: 5px 0 0 5px;
+  outline:none
+}
+
+.search-box button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #f3d52e;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
 }

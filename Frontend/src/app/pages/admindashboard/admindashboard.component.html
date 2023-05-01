@@ -3,12 +3,13 @@
 </head>
 
 
+<!-- sidenav -->
 
 
 <app-sidenav></app-sidenav>
 
 
-
+<!-- Dashboard -->
 <body>
   
 
@@ -32,13 +33,20 @@
 <h3 style="text-align:center">Find out latest datas submitted for the Curriculum</h3><br>
 <h4 style="text-align:center">The datas are given in the order of Requirement Name, Area of training, Institution/Corporation, Category and Duration of Training</h4><br>
 
-<div class="columns" *ngFor="let requirement of requirements">
+<div class="text-center search-box">
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Search">
+  <button type="button" (click)="search()">Search</button>
+
+
+</div>
+
+<div class="columns " *ngFor="let requirement of filteredRequirements">
   <ul class="price">
     <li class="header">{{requirement.name}}</li>
     <li class="grey">{{requirement.area}}</li>
-    <li>{{requirement.inst}}</li>
-    <li>{{requirement.category}}</li>
-    <li>{{requirement.duration}}</li>
+    <li class="white">{{requirement.inst}}</li>
+    <li class="white">{{requirement.category}}</li>
+    <li class="white">{{requirement.duration}}</li>
    
    
   </ul>

@@ -6,7 +6,7 @@
   
   body {
     color: #333333;
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
   h1 {
@@ -19,7 +19,7 @@
     border: 1px solid rgba(181, 213, 144, 0.5);
     border-collapse: collapse;
     color: #666666;
-    font-size: 0.85em;
+    font-size: 1em;
       margin: 0 auto;
       min-width: 900px;
   }
@@ -72,6 +72,7 @@
   
   .table-container {
     overflow-x: auto;
+    /* font-family: "Poppins", sans-serif; */
   }
   
   .table-rwd td:first-child {
@@ -92,3 +93,33 @@
   .table-rwd tr:nth-child(2) td:first-child {
     box-shadow: 0 -2.7em 0 -6px #1a8cff, -6px -2.7em 0 -6px #1a8cff;
   }
+
+/* CSS FOR Buttons */
+
+.button1 {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.button2 {
+  background-color: #008CBA; /* Blue */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 25px;
+}

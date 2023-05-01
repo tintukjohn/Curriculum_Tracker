@@ -23,6 +23,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditModalComponent } from './pages/edit-modal/edit-modal.component';
+
 
 
 
@@ -46,7 +49,8 @@ import { FooterComponent } from './footer/footer.component';
     SubmissionsComponent,
     RegisterComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    EditModalComponent
    
   ],
   imports: [
@@ -54,7 +58,8 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

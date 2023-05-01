@@ -11,7 +11,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ResponseFormComponent implements OnInit{
   
-  
+  resform : any = new FormGroup ({
+    'comments' : new FormControl(''),
+    'doc' : new FormControl('')
+  })
   
 
   constructor(private router:Router,private api:ApiService,
@@ -35,12 +38,21 @@ export class ResponseFormComponent implements OnInit{
   onFileSelect(event:any){
 
 }
-   
+  
+onSubmit() {
+
+}
     
     
 
-  onSubmit() {
-    
+onvalueSubmit() {
+    this.api.addRes(this.resform.value).subscribe(res => {
+      console.log(res);
+      if(res){
+        alert('Response sent Successfully!')
+        this.router.navigate(['/faculty-dashboard']);
+      }
+    })
     }
     
 

@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const USER_DATA = require('../models/user')
 const REQ_DATA = require('../models/requirement')
+const RES_DATA = require('../models/response')
 const path = require('path');
 const multer = require('multer');
 const app = express();
@@ -9,7 +10,7 @@ const mongoose = require('mongoose');
 
 
 
-// response list
+// requirement list
 router.get('/requirementlist', async (req, res) => {
     try {
 
@@ -41,7 +42,35 @@ router.post('/require', async(req,res)=>{
     }
 })
 
+//response list
+router.get('/responselist',async(req,res)=>{
+    try {
+        
+        const fact = await RES_DATA.find()
+        res.send(fact);
 
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+//response add
+router.post('/response', async(req,res)=>{
+    try {
+        let term= {
+            comments : req.body.comments,
+            doc: req.body.doc
+            
+        }
+        const newRes = new RES_DATA(term)
+        const saveRes = await newRes.save()
+
+        res.send(saveRes);
+
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 
 module.exports = router

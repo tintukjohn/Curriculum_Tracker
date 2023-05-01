@@ -22,7 +22,13 @@ export class ApiService {
     return this.http.post(`${this.apiUrl}/require`, data)
   }
 
-  
+  getResponsesList() {
+    return this.http.get(`${this.apiUrl}/responselist`)
+  }
+
+  addRes(data:any){
+    return this.http.post(`${this.apiUrl}/response`, data)
+  }
   
 }
 
