@@ -2,9 +2,16 @@
 <div class="container pt-5 mt-5">
   <!-- <button (click)="logout()" style="float: right">Logout</button> -->
     <h1 class="text-center">Requirements</h1>
+
+    <div class="text-center search-box">
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Search">
+      <button type="button" (click)="search()">Search</button>
+    </div>
+
     <table class="table table-striped pt-5 mt-5">
-        <thead>
-          <tr>
+
+     <thead>
+        <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Area</th>
@@ -14,8 +21,9 @@
 
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let requirement of requirements; let i = index">
+
+       <tbody>
+          <tr *ngFor="let requirement of filteredRequirements; let i = index">
             <th scope="row">{{i+1}}</th>
             <td>{{requirement.name}}</td>
             <td>{{requirement.area}}</td>

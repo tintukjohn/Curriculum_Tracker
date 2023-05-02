@@ -14,6 +14,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
+  // All things Requirement
   getRequirementsList() {
     return this.http.get(`${this.apiUrl}/requirementlist`)
   }
@@ -25,6 +26,12 @@ export class ApiService {
   updateReq(id:any, data: any) {
     return this.http.put(`${this.apiUrl}/require/${data}`, id)
   }
+ 
+  deleteRequire(id:any){
+    return this.http.delete(`${this.apiUrl}/require/${id}`)
+  }
+
+  // All things Responses
 
   getResponsesList() {
     return this.http.get(`${this.apiUrl}/responselist`)

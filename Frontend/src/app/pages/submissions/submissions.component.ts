@@ -15,6 +15,7 @@ import { EditModalComponent } from '../edit-modal/edit-modal.component';
 export class SubmissionsComponent {
   
   responses : any = []
+  approvedResponses: any[] = [];
 
 
   constructor(private apiService: ApiService, private route: Router, private sanitizer: DomSanitizer, private http: HttpClient, private modalService: NgbModal) { }
@@ -44,6 +45,10 @@ export class SubmissionsComponent {
   })
  }
 
+ approve(response: any) {
+  this.approvedResponses.push(response);
+  this.responses = this.responses.filter((r: any) => r !== response);
+}
 
 
   }

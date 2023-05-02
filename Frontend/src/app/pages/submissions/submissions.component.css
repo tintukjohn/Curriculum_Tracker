@@ -23,7 +23,7 @@
     font-size: 1em;
     margin: 0 auto;
     /* min-width: 900px; */
-    width: calc(100% - 100px);
+    width: calc(100% - 200px);
     
       /* width: 100%; */
   }
@@ -35,7 +35,7 @@
   }
   
   .table-rwd th {
-    background-color: #1a8cff;
+    background-color: #d7782f;
     color: #ffffff;
     font-weight: normal;
     text-align: right;
@@ -138,7 +138,7 @@
 }
 
 .button3 {
-  background-color: #83153c; /* Red*/
+  background-color: #f04581; /* Red*/
   border: none;
   color: white;
   padding: 15px 32px;

@@ -1,0 +1,26 @@
+/* CSS for search bar */
+
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+  }
+  
+  .search-box input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid rgb(217, 148, 148);
+    border-radius: 5px 0 0 5px;
+    outline:none
+  }
+  
+  .search-box button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #815724;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }

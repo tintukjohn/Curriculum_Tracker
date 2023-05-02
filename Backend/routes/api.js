@@ -42,24 +42,31 @@ router.post('/require', async(req,res)=>{
     }
 })
 
+//require delete
+router.delete('/require/:id', async(req,res)=>{
+
+    try {
+    let id = req.params.id;
+
+    const deleteRequire = await REQ_DATA.findByIdAndDelete(id)
+    res.send(deleteRequire)
+    } catch (error) {
+       console.log(error)
+    }
+})
+
 // require update
 
-router.put('/require', async(req,res) => {
+
+router.put('/require/:id', async(req,res) => {
 
     try {
         
         let id = req.params.id
-        let item = {
-            name: req.body.name,
-            area: req.body.area,
-            inst: req.body.inst,
-            category: req.body.category,
-            duration: req.body.duration
-        }
-
-        let updateData = {$set : item}
-        let updateReq = await REQ_DATA.findByIdAndUpdate({'id' : id}, updateData)
-        res.send(updateReq)
+        console.log(id);
+        let updateData = req.body
+        let updateRequire = await REQ_DATA.findByIdAndUpdate({_id:id}, {$set:updateData})
+        res.send(updateRequire)
 
     } catch (error) {
         console.log(error);
