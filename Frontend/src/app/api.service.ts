@@ -52,7 +52,11 @@ export class ApiService {
   getCurrentdata(id:any){
     return this.http.get(`${this.apiUrl}/response/${id}`)
   }
-  
+  //register
+
+  signup(data:any):Observable<any>{
+    return this.http.post(`${this.apiUrl}/rgister`, data)
+  }
 }
 
 

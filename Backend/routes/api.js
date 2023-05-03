@@ -8,6 +8,7 @@ const multer = require('multer');
 const app = express();
 const mongoose = require('mongoose');
 
+const bcrypt = require('bcrypt');
 
 
 // requirement list
@@ -135,6 +136,32 @@ router.put('/response/:id', async(req,res) => {
     }
 })
 
+// user signup
+router.post('/register',(req,res)=>{
+
+    bcrypt.hash(req.body.password, 10, (err, hash)=>{
+        if(err){
+            return res.json({success:false, message:"Hash error !"})
+        }else{
+            const user = new USER_DATA({
+                name: req.body.name,
+                email: req.body.email,
+                password: req.body.password
+            })
+            user.save()
+            .then((_)=>{
+                res.json({success:true, message:"Account Has been Created"})
+            })
+            .catch((err)=>{
+                if(err.code == 11000){
+                    return res.json({success:false, message:"Email Already exsist"})
+                }
+                res.json({success:false, message:"Authentication failed"})
+            })
+        }
+    })
+
+});
 
 
 

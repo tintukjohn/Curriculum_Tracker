@@ -27,9 +27,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EditModalComponent } from './pages/edit-modal/edit-modal.component';
 
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +56,7 @@ import { EditModalComponent } from './pages/edit-modal/edit-modal.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
