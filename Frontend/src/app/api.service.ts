@@ -55,7 +55,7 @@ export class ApiService {
   //register
 
   signup(data:any):Observable<any>{
-    return this.http.post(`${this.apiUrl}/rgister`, data)
+    return this.http.post(`${this.apiUrl}/register`, data) 
   }
 }
 
