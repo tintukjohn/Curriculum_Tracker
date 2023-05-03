@@ -9,6 +9,7 @@ const RequirementSchema = new Schema({
     inst: { type: String, required: true },
     category: { type: String, required: true },
     duration: { type: String, required: true },
+    status: { type: Boolean, default: false },
     date: { type: Date, default: Date.now()}
 })
 

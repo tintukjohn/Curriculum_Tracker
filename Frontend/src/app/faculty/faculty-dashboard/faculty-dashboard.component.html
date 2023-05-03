@@ -1,43 +1,41 @@
 <app-navbar></app-navbar>
 <div class="container pt-5 mt-5">
   <!-- <button (click)="logout()" style="float: right">Logout</button> -->
-    <h1 class="text-center">Requirements</h1>
+  <h1 class="text-center">Requirements</h1>
 
-    <div class="text-center search-box">
-      <input type="text" [(ngModel)]="searchTerm" placeholder="Search">
-      <button type="button" (click)="search()">Search</button>
-    </div>
+  <div class="text-center search-box">
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Search">
+    <button type="button" (click)="search()">Search</button>
+  </div>
 
-    <table class="table table-striped pt-5 mt-5">
-
-     <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Area</th>
-            <th scope="col">Inst./Corp.</th>
-            <th scope="col">Category</th>
-            <th scope="col">Duration</th>
-
-          </tr>
-        </thead>
-
-       <tbody>
-          <tr *ngFor="let requirement of filteredRequirements; let i = index">
-            <th scope="row">{{i+1}}</th>
-            <td>{{requirement.name}}</td>
-            <td>{{requirement.area}}</td>
-            <td>{{requirement.inst}}</td>
-            <td>{{requirement.category}}</td>
-            <td>{{requirement.duration}}</td>
-<td>
-    <button type="button" class="btn btn-primary btn-sm" routerLink="/response-form/{{requirement._id}}">Response</button> &nbsp;&nbsp;
-    <button (click)="download(requirement._id)" type="button" class="btn btn-primary btn-sm">Download</button>
-</td>
-
-          </tr>
-
-        </tbody>
-      </table>
+  <table class="table table-striped pt-5 mt-5">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Area</th>
+        <th scope="col">Inst./Corp.</th>
+        <th scope="col">Category</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let requirement of filteredRequirements; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{requirement.name}}</td>
+        <td>{{requirement.area}}</td>
+        <td>{{requirement.inst}}</td>
+        <td>{{requirement.category}}</td>
+        <td>{{requirement.duration}}</td>
+        <td [style.color]="requirement.status?'green':'red'">{{requirement.status?'Approved':'Pending'}}</td>
+        <td>
+          <button type="button" class="btn btn-primary btn-sm"
+            routerLink="/response-form/{{requirement._id}}">Response</button> &nbsp;&nbsp;
+          <button (click)="download(requirement._id)" type="button" class="btn btn-primary btn-sm">Download</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 <app-footer></app-footer>

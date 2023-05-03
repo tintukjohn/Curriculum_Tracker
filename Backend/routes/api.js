@@ -90,8 +90,10 @@ router.post('/response', async(req,res)=>{
     try {
         let term= {
             comments : req.body.comments,
-            doc: req.body.doc
-            
+            doc: req.body.doc,
+            fileDetails: req.body.fileDetails,
+            req_id: req.body.req_id,
+            approve: req.body.approve
         }
         const newRes = new RES_DATA(term)
         const saveRes = await newRes.save()

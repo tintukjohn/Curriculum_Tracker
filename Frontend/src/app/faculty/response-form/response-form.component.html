@@ -3,22 +3,48 @@
     <div class="row justify-content-center pt-3 mt-3">
         <div class="col-6">
             <!-- <form #responseform="ngForm" (ngSubmit)="onSubmit()"> -->
-                <form [formGroup]="resform" (ngSubmit)="onvalueSubmit()">
-                <div class="form-outline mb-3">
+            <form [formGroup]="resform" (ngSubmit)="onValueSubmit()">
+
+                <div class="form-group mb-3 ">
+                    <label class="form-label" for="textAreaExample">Req_ID</label>
+                    <input readonly type="text" class="form-control" id="exampleInputName1"
+                        name="req_id" value="{{req_id}}">
+
+                </div>
+
+                <div class="form-group mb-3">
                     <label class="form-label" for="textAreaExample">Comments</label>
                     <textarea class="form-control" id="textAreaExample" rows="4" name="comments"
-                       formControlName="comments" required></textarea>
+                        formControlName="comments" required></textarea>
                 </div>
 
-                <div class="form-group mb-3" >
+                <div class="form-group mb-3">
                     <label for="exampleInputfile1" class="form-label">Document</label>
-                    <input type="file" class="form-control" id="doc" name="doc"
-                        formControlName="doc" (change)="onFileSelect($event)" required>
+                    <input type="file" class="form-control" id="doc" name="doc" formControlName="doc"
+                        (change)="onFileSelect($event)" required>
+
+                    <div class="container" *ngIf="loading">
+                        <h3>Uploading ...</h3>
+                    </div>
+
                 </div>
 
-                <button type="submit" class="btn btn-primary" >Send</button>
+                <button type="submit" class="btn btn-primary">Send</button>
             </form>
-        <!-- </form> -->
+            <!-- </form> -->
         </div>
     </div>
+
+    <!-- Shareable short link of uploaded file -->
+    <!-- <div class="container text-center jumbotron" *ngIf="shortLink">
+	<h2> Visit Here</h2>
+	<a href="{{shortLink}}">{{shortLink}}</a>
+</div> -->
+
+    <!--Flag variable is used here-->
+    <!-- <div class="container" *ngIf="loading">
+	<h3>Loading ...</h3>
+</div> -->
+
+
 </div>
