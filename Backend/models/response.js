@@ -13,4 +13,4 @@ const ResponseSchema = new Schema({
 
 let ResponsesData = mongoose.model('response', ResponseSchema)
 
-module.exports = ResponsesData
+module.exports = ResponsesData 
