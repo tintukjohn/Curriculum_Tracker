@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit{
     this.apiService.signup(this.signup.value).subscribe(res => {
       console.log(res)
       if(res){
-        alert('Requirement Sent Successfully')
+        alert('Requirement Sent Successfully');
         this.router.navigate(['/faculty'])
       }
     })
