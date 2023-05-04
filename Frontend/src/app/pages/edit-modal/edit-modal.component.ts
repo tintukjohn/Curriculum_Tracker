@@ -28,8 +28,10 @@ export class EditModalComponent implements OnInit{
       })
     }))
   }
+  
 
-  onUpdate(){
+
+ onUpdate(){
     this.apiService.updateResponse(this.editRes.value, this.router.snapshot.params['id']).subscribe((result)=>{
       console.log(result);
       if(result){

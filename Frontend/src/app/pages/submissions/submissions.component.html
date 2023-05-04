@@ -21,7 +21,10 @@
 			
 		</tr>
 
-		<tr *ngFor = "let response of responses; let i = index" >
+        
+		<tr *ngFor = "let response of responses; let i = index"  >
+			
+
 			<td>{{i+1}}</td>
 			<td>{{response.comments}}</td>
 			<td>{{response.doc}}</td>
@@ -31,7 +34,7 @@
 
 			
 		</tr>
-		
+	
 
 		
 	</table>
@@ -51,11 +54,11 @@
 		  <th>File Uploaded</th>
 		</tr>
   
-		<tr *ngFor="let response of approvedResponses; let i = index">
-		  <td>{{ i + 1 }}</td>
-		  <td>{{ response.comments }}</td>
-		  <td>{{ response.doc }}</td>
-		</tr>
+		<tr *ngFor="let response of approvedCurriculums; let i = index">
+			<td>{{i+1}}</td>
+			<td>{{response.comments}}</td>
+			<td>{{response.doc}}</td>
+		  </tr>
   
 	  </table>
 	</div>
