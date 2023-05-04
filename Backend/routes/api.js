@@ -136,7 +136,10 @@ router.put('/response/:id', async(req,res) => {
     }
 })
 
-// user signup
+
+
+// user signup using bcrypt library
+
 router.post('/register',(req,res)=>{
 
     bcrypt.hash(req.body.password, 10, (err, hash)=>{
