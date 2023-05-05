@@ -21,16 +21,16 @@
             </tr>
         </thead>
         <tbody>
-                    <ng-container *ngFor="let requirement of filteredRequirements; let i = index">
-                        <tr *ngIf="requirement.status">
+                    <ng-container *ngFor="let approvedlList of filteredApprovedlList; let i = index">
+                        <tr *ngIf="approvedlList.status">
                     <!-- <th scope="row">{{i+1}}</th> -->
-                    <td>{{requirement.name}}</td>
-                    <td>{{requirement.area}}</td>
-                    <td>{{requirement.inst}}</td>
-                    <td>{{requirement.category}}</td>
-                    <td>{{requirement.duration}}</td>
+                    <td>{{approvedlList.name}}</td>
+                    <td>{{approvedlList.area}}</td>
+                    <td>{{approvedlList.inst}}</td>
+                    <td>{{approvedlList.category}}</td>
+                    <td>{{approvedlList.duration}}</td>
                     <td>
-                        <button (click)="download(requirement._id)" type="button"
+                        <button (click)="download(approvedlList._id)" type="button"
                             class="btn btn-primary btn-sm">Download</button>
                     </td>
             </tr>

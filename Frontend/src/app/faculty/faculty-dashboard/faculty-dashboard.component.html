@@ -1,54 +1,13 @@
 <!-- <app-navbar></app-navbar> -->
 
-
-
-<header>
-  <div class="px-3 py-2 border-bottom mb-3">
-    <div class="container d-flex flex-wrap justify-content-center">
-      <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search" >
-        <input
-        type="search"
-        class="form-control rounded"
-        placeholder="Search..."
-        aria-label="Search"
-        aria-describedby="search-addon"
-        [(ngModel)]="searchTerm"
-      />
-      <span class="input-group-text text-white border-0" id="search-addon">
-        <i class="fas fa-search" (click)="search()"></i>
-      </span>
-      </form>
-
-      <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0">
-        <li>
-          <a href="#" class="nav-link text-secondary" routerLink="/faculty-main">
-            Dashboard
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link text-secondary" routerLink="/approved-list">
-            Approved List
-          </a>
-        </li>
-      </ul>
-
-      <div class="text-end">
-        <button type="button" class="btn btn-primary">Logout</button>
-      </div>
-    </div>
-  </div>
-</header>
-
-
-
 <div class="container pt-5 mt-5">
   <!-- <button (click)="logout()" style="float: right">Logout</button> -->
   <h1 class="text-center">Requirements</h1>
 
-  <!-- <div class="text-center search-box">
+  <div class="text-center search-box">
     <input type="text" [(ngModel)]="searchTerm" placeholder="Search">
     <button type="button" (click)="search()">Search</button>
-  </div> -->
+  </div>
 
   <table class="table table-striped pt-5 mt-5">
     <thead>

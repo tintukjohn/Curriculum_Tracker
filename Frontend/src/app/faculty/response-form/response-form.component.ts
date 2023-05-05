@@ -80,7 +80,7 @@ export class ResponseFormComponent implements OnInit {
             console.log(res);
             if (res) {
               alert('Response sent Successfully!')
-               this.router.navigate(['/faculty-dashboard']);
+               this.router.navigate(['/faculty-main']);
             }
           })
 
