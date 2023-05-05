@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
+  updateRequirementStatus(requirementId: string, newStatus: boolean) {
+    throw new Error('Method not implemented.');
+  }
   
 
 
@@ -35,6 +38,10 @@ export class ApiService {
 
   getResponsesList() {
     return this.http.get(`${this.apiUrl}/responselist`)
+  }
+
+  getOneRes(id:any){
+    return this.http.get(`${this.apiUrl}/response/${id}`)
   }
 
   addRes(data:any){

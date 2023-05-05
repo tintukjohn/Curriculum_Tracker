@@ -86,6 +86,20 @@ router.get('/responselist',async(req,res)=>{
     }
 })
 
+// get one response
+
+router.get('/response/:id', async(req,res)=>{
+    try {
+    
+let id = req.params.id
+const singleRes = await RES_DATA.findById(id)
+res.send(singleRes)
+
+    } catch (error) {
+       console.log(error);
+    }
+})
+
 //response add
 router.post('/response', async(req,res)=>{
     try {
@@ -136,7 +150,10 @@ router.put('/response/:id', async(req,res) => {
     }
 })
 
-// user signup
+
+
+// user signup using bcrypt library
+
 router.post('/register',(req,res)=>{
 
     bcrypt.hash(req.body.password, 10, (err, hash)=>{

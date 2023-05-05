@@ -1,4 +1,4 @@
-// This schema file is to store response data from faulty's side
+// This schema file is to store response data from faculty's side
 
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
@@ -13,4 +13,4 @@ const ResponseSchema = new Schema({
 
 let ResponsesData = mongoose.model('response', ResponseSchema)
 
-module.exports = ResponsesData
+module.exports = ResponsesData 
