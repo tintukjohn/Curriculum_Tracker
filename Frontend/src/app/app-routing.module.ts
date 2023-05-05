@@ -19,6 +19,7 @@ import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { EditModalComponent } from './pages/edit-modal/edit-modal.component';
+import { ApprovedListComponent } from './faculty/approved-list/approved-list.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
@@ -38,8 +39,9 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'navbar', component: NavbarComponent},
   {path: 'footer', component: FooterComponent},
-  {path: 'edit-modal/:id', component: EditModalComponent}
-  
+  {path: 'edit-modal/:id', component: EditModalComponent},
+  {path: 'approved-list', component: ApprovedListComponent}
+
 ];
 
 @NgModule({

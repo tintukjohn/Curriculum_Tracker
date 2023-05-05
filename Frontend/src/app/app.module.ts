@@ -25,7 +25,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EditModalComponent } from './pages/edit-modal/edit-modal.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PopUpComponent } from './faculty/pop-up/pop-up.component';
+import { ApprovedListComponent } from './faculty/approved-list/approved-list.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +50,9 @@ import { EditModalComponent } from './pages/edit-modal/edit-modal.component';
     RegisterComponent,
     NavbarComponent,
     FooterComponent,
-    EditModalComponent
-   
+    EditModalComponent,
+    PopUpComponent,
+    ApprovedListComponent   
   ],
   imports: [
     BrowserModule,
@@ -57,6 +61,8 @@ import { EditModalComponent } from './pages/edit-modal/edit-modal.component';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

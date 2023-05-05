@@ -1,21 +1,20 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
-import { Router, NavigationExtras } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog'
 import { PopUpComponent } from '../pop-up/pop-up.component';
 
-
 @Component({
-  selector: 'app-faculty-dashboard',
-  templateUrl: './faculty-dashboard.component.html',
-  styleUrls: ['./faculty-dashboard.component.css']
+  selector: 'app-approved-list',
+  templateUrl: './approved-list.component.html',
+  styleUrls: ['./approved-list.component.css']
 })
-export class FacultyDashboardComponent {
-
+export class ApprovedListComponent {
   constructor(private apiService: ApiService, private route: Router, private dialog: MatDialog) { }
   requirements: any = []
   filteredRequirements: any = [];
   searchTerm!: string;
+  approvedlList: any = []
 
   ngOnInit(): void {
     this.getData()
@@ -26,14 +25,19 @@ export class FacultyDashboardComponent {
       //console.log('incoming data', res)
       this.requirements = res;
       this.filteredRequirements = res;
+      this.approvedlList = res;
+//       if(this.approvedlList.status){
+// this.requirements = res;
+//       }
     })
   }
 
-  download(id: any) {
+  download(id: any){
 
   }
   search() {
     this.filteredRequirements = this.requirements.filter((requirement: { area: string; name: string; category: string; inst: string; }) => {
+      
       return (
         requirement.area.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
         requirement.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
@@ -43,7 +47,12 @@ export class FacultyDashboardComponent {
     });
   }
 
-  openDialog() {
+  openDialog(){
     this.dialog.open(PopUpComponent);
   }
+
+  logout(){
+    
+  }
+
 }
