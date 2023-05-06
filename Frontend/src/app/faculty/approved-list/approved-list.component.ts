@@ -24,21 +24,35 @@ export class ApprovedListComponent implements OnInit{
   downloadKey: any = null
   name = 'Angular 15';
   fileUrl: SafeResourceUrl | undefined;
- 
+  responses : any = []
+  approvedCurriculums: any[] = [];
 
   ngOnInit() {
     this.getData()
-   
+     // approved curriculums
+     const savedCurriculums = localStorage.getItem('approvedCurriculums');
+     if (savedCurriculums) {
+       this.approvedCurriculums = JSON.parse(savedCurriculums);
+       this.filterApprovedResponses();
+     }
   }
     
 
 
   getData() {
-    this.apiService.getRequirementsList().subscribe(res => {
-      this.approvedlList = res;
-      this.filteredApprovedlList = res;
-     
+    this.apiService.getResponsesList().subscribe(res => {
+      // this.approvedlList = res;
+      // this.filteredApprovedlList = res;
+      this.responses = res
+      this.filterApprovedResponses();
     })
+  }
+  filterApprovedResponses() {
+    this.responses = this.responses.filter((response: { _id: any; }) => {
+      return !this.approvedCurriculums.some((curriculum) => {
+        return response._id === curriculum._id;
+      });
+    });
   }
 
   // download(id: any) {
@@ -56,13 +70,13 @@ export class ApprovedListComponent implements OnInit{
 
 
 
-download(approvedlList:any) {
-  const data = `Name: ${approvedlList.name}, Area: ${approvedlList.area}, Inst : ${approvedlList.inst}, Category: ${approvedlList.category}, Duration: ${approvedlList.duration}`;
+download(response:any) {
+  const data = `No: ${response.i}, Comments: ${response.comments}, File Uploaded : ${response.doc}`;
   const blob = new Blob([data], { type: 'text/plain;charset=utf-8' });
   const url = window.URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.setAttribute('href', url);
-  link.setAttribute('download', `${approvedlList.name}.txt`);
+  link.setAttribute('download', `${response.doc}.txt`);
   link.click();
   window.URL.revokeObjectURL(url);
 }
@@ -71,17 +85,17 @@ download(approvedlList:any) {
 
 
 
-  search() {
-    this.filteredApprovedlList = this.approvedlList.filter((content: { area: string; name: string; category: string; inst: string; }) => {
+  // search() {
+  //   this.filteredApprovedlList = this.approvedlList.filter((content: { area: string; name: string; category: string; inst: string; }) => {
 
-      return (
-        content.area.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-        content.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-        content.category.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-        content.inst.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
-    });
-  }
+  //     return (
+  //       content.area.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+  //       content.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+  //       content.category.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+  //       content.inst.toLowerCase().includes(this.searchTerm.toLowerCase())
+  //     );
+  //   });
+  // }
 
   openDialog() {
     this.dialog.open(PopUpComponent);
