@@ -30,8 +30,9 @@
                     <td>{{approvedlList.category}}</td>
                     <td>{{approvedlList.duration}}</td>
                     <td>
-                        <button (click)="download(approvedlList._id)" type="button"
-                            class="btn btn-primary btn-sm">Download</button>
+                        <!-- <button (click)="download(approvedlList._id)" type="button"
+                            class="btn btn-primary btn-sm">Download</button> -->
+                            <button><a href="fileUrl" download="file.txt"  class="btn btn-primary btn-sm" (click)="download(approvedlList)">Download File</a></button>
                     </td>
             </tr>
         </ng-container>
