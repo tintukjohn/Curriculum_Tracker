@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: url(/Frontend/src/assets/img/cloud4c-company-contact-1Desktop.jpg);
+    background-image: url(../../assets/img/cloud4c-company-contact-1Desktop.jpg);
     background-size: cover;
 }
 
