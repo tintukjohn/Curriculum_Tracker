@@ -12,7 +12,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   templateUrl: './approved-list.component.html',
   styleUrls: ['./approved-list.component.css']
 })
-export class ApprovedListComponent implements OnInit{
+export class ApprovedListComponent implements OnInit {
 
   constructor(private apiService: ApiService, private route: Router, private dialog: MatDialog, private fileUploadService: FileUploadService, private http: HttpClient, private sanitizer: DomSanitizer) { }
 
@@ -24,19 +24,19 @@ export class ApprovedListComponent implements OnInit{
   downloadKey: any = null
   name = 'Angular 15';
   fileUrl: SafeResourceUrl | undefined;
-  responses : any = []
+  responses: any = []
   approvedCurriculums: any[] = [];
 
   ngOnInit() {
     this.getData()
-     // approved curriculums
-     const savedCurriculums = localStorage.getItem('approvedCurriculums');
-     if (savedCurriculums) {
-       this.approvedCurriculums = JSON.parse(savedCurriculums);
-       this.filterApprovedResponses();
-     }
+    // approved curriculums
+    const savedCurriculums = localStorage.getItem('approvedCurriculums');
+    if (savedCurriculums) {
+      this.approvedCurriculums = JSON.parse(savedCurriculums);
+      this.filterApprovedResponses();
+    }
   }
-    
+
 
 
   getData() {
@@ -70,16 +70,16 @@ export class ApprovedListComponent implements OnInit{
 
 
 
-download(response:any) {
-  const data = `No: ${response.i}, Comments: ${response.comments}, File Uploaded : ${response.doc}`;
-  const blob = new Blob([data], { type: 'text/plain;charset=utf-8' });
-  const url = window.URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.setAttribute('href', url);
-  link.setAttribute('download', `${response.doc}.txt`);
-  link.click();
-  window.URL.revokeObjectURL(url);
-}
+  download(response: any) {
+    const data = `No: ${response.i}, Comments: ${response.comments}, File Uploaded : ${response.doc}`;
+    const blob = new Blob([data], { type: 'text/plain;charset=utf-8' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', `${response.doc}.txt`);
+    link.click();
+    window.URL.revokeObjectURL(url);
+  }
 
 
 
@@ -101,7 +101,7 @@ download(response:any) {
     this.dialog.open(PopUpComponent);
   }
 
- 
+
 
   // logout(){}
 

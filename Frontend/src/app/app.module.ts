@@ -27,6 +27,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EditModalComponent } from './pages/edit-modal/edit-modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatToolbarModule} from '@angular/material/toolbar';
+import { MatIconModule} from '@angular/material/icon';
+import { MatButtonModule} from '@angular/material/button';
 import { PopUpComponent } from './faculty/pop-up/pop-up.component';
 import { ApprovedListComponent } from './faculty/approved-list/approved-list.component';
 
@@ -62,7 +65,10 @@ import { ApprovedListComponent } from './faculty/approved-list/approved-list.com
     ReactiveFormsModule,
     NgbModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
