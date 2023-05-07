@@ -25,6 +25,16 @@ var multer = require('multer');
 const api = require('./routes/api')
 app.use('/api',api)
 
+const path = require('path'); 
+app.use(express.static('./dist/frontend'));
+
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname + '/dist/frontend/index.html'));
+     });
+
+
+
+
 
 //Server code
 app.listen(PORT, () => {
