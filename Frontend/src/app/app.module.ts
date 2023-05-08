@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {AuthService} from'./auth-service.service';
+import { AuthService } from './auth-service.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -27,12 +27,20 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EditModalComponent } from './pages/edit-modal/edit-modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatToolbarModule} from '@angular/material/toolbar';
-import { MatIconModule} from '@angular/material/icon';
-import { MatButtonModule} from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { PopUpComponent } from './faculty/pop-up/pop-up.component';
 import { ApprovedListComponent } from './faculty/approved-list/approved-list.component';
 import { AuthguardGuard } from './authguard.guard';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSortModule } from '@angular/material/sort';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+
+
 
 
 @NgModule({
@@ -57,7 +65,7 @@ import { AuthguardGuard } from './authguard.guard';
     FooterComponent,
     EditModalComponent,
     PopUpComponent,
-    ApprovedListComponent   
+    ApprovedListComponent
   ],
   imports: [
     BrowserModule,
@@ -70,10 +78,16 @@ import { AuthguardGuard } from './authguard.guard';
     MatDialogModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatSortModule,
+    MatInputModule,
+    MatSelectModule
   ],
-  providers: [ApiService,AuthService,AuthguardGuard],
-  
+  providers: [ApiService, AuthService, AuthguardGuard],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

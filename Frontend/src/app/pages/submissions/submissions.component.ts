@@ -13,16 +13,16 @@ import { EditModalComponent } from '../edit-modal/edit-modal.component';
 })
 export class SubmissionsComponent {
 
-  responses : any = []
+  responses: any = []
   approvedCurriculums: any[] = [];
 
 
 
   constructor(private apiService: ApiService, private route: Router, private sanitizer: DomSanitizer, private http: HttpClient, private modalService: NgbModal) { }
- 
 
 
-  ngOnInit(){
+
+  ngOnInit() {
     this.getData()
     // approved curriculums
     const savedCurriculums = localStorage.getItem('approvedCurriculums');
@@ -31,7 +31,7 @@ export class SubmissionsComponent {
       this.filterApprovedResponses();
     }
   }
-  
+
   getData() {
     this.apiService.getResponsesList().subscribe(res => {
       //console.log('incoming data', res)
@@ -47,48 +47,47 @@ export class SubmissionsComponent {
       });
     });
   }
-  
- delete(id:any){
-  this.apiService.deleteResponse(id).subscribe(res => {
-    console.log('Response from deleteResponse():', res);
-    if (res) {
-      this.responses = this.responses.filter((response: any) => response.id !== id);
-      console.log('Updated Responses array:', this.responses);
-      alert('Response deleted successfully!');
-      this.getData(); // Refresh the data from the server
-    }
-  })
- }
 
- approve(response: any) {
-  const isAlreadyApproved = this.approvedCurriculums.some((curriculum) => curriculum._id === response._id);
-  if (!isAlreadyApproved) {
-    this.approvedCurriculums.push(response);
-    localStorage.setItem('approvedCurriculums', JSON.stringify(this.approvedCurriculums));
-    this.filterApprovedResponses();
-   
-    // this.responses = this.responses.filter((res: any) => res._id !== response._id);
+  delete(id: any) {
+    this.apiService.deleteResponse(id).subscribe(res => {
+      console.log('Response from deleteResponse():', res);
+      if (res) {
+        this.responses = this.responses.filter((response: any) => response.id !== id);
+        console.log('Updated Responses array:', this.responses);
+        alert('Response deleted successfully!');
+        this.getData(); // Refresh the data from the server
+      }
+    })
   }
+
+  approve(response: any) {
+    const isAlreadyApproved = this.approvedCurriculums.some((curriculum) => curriculum._id === response._id);
+    if (!isAlreadyApproved) {
+      this.approvedCurriculums.push(response);
+      localStorage.setItem('approvedCurriculums', JSON.stringify(this.approvedCurriculums));
+      this.filterApprovedResponses();
+      // this.responses = this.responses.filter((res: any) => res._id !== response._id);
+    }
+  }
+
+
+
+
+
+
+
+
+
 }
 
 
 
-  
 
 
 
 
-  
-}
 
 
 
-
-  
-
-
-  
-
- 
 
 

@@ -31,6 +31,7 @@ export class ResponseFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.req_id = this.route.snapshot.paramMap.get('id');
+    console.log('response form id is: ', this.req_id)
   }
 
 

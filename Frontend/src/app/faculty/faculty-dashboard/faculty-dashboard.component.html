@@ -1,5 +1,4 @@
-<div class="container pt-5 mt-5">
-  <!-- <button (click)="logout()" style="float: right">Logout</button> -->
+<!-- <div class="container pt-5 mt-5">
   <h1 class="text-center">Requirements</h1>
 
   <div class="text-center search-box">
@@ -16,7 +15,6 @@
         <th scope="col">Inst./Corp.</th>
         <th scope="col">Category</th>
         <th scope="col">Duration</th>
-        <!-- <th scope="col">Status</th> -->
       </tr>
     </thead>
     <tbody>
@@ -27,7 +25,6 @@
         <td>{{requirement.inst}}</td>
         <td>{{requirement.category}}</td>
         <td>{{requirement.duration}}</td>
-        <!-- <td [style.color]="requirement.status?'green':'red'">{{requirement.status?'Approved':'Pending'}}</td> -->
         <td>
           <button [disabled]="requirement.status" type="button" class="btn btn-primary btn-sm"
             routerLink="/response-form/{{requirement._id}}">Response</button> &nbsp;&nbsp;
@@ -36,4 +33,90 @@
       </tr>
     </tbody>
   </table>
+</div> -->
+
+
+
+<div class="container">
+  <div style="margin-top: 10px;">
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search.." #input>
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="index">
+          <th mat-header-cell *matHeaderCellDef> # </th>
+          <td mat-cell *matCellDef="let element; let i = index;">{{(i+1 + (paginator.pageIndex * paginator.pageSize))}}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="_id">
+          <th [style.display]="'none'" mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <td [style.display]="'none'" mat-cell *matCellDef="let row"> {{row._id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+          <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+        </ng-container>
+
+        <!-- Area Column -->
+        <ng-container matColumnDef="area">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Area </th>
+          <td mat-cell *matCellDef="let row"> {{row.area}} </td>
+        </ng-container>
+
+        <!-- Inst Column -->
+        <ng-container matColumnDef="inst">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Inst. </th>
+          <td mat-cell *matCellDef="let row"> {{row.inst}} </td>
+        </ng-container>
+
+        <!-- Category Column -->
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+          <td mat-cell *matCellDef="let row"> {{row.category}} </td>
+        </ng-container>
+
+        <!-- Duration Column -->
+        <ng-container matColumnDef="duration">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Duration </th>
+          <td mat-cell *matCellDef="let row"> {{row.duration}} </td>
+        </ng-container>
+
+        <!-- Status Column -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Approved </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-icon [hidden]="!row.status" color="accent">check</mat-icon>
+          </td>
+        </ng-container>
+
+        <!-- Response Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Response </th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button (click)="onRowClicked(row)" [disabled]="row.status" color="warn">
+              <mat-icon>insert_comment</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+
+  </div>
 </div>
