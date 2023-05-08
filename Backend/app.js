@@ -25,7 +25,11 @@ var multer = require('multer');
 const api = require('./routes/api')
 app.use('/api',api)
 
+//hosting
 
+const path = require('path');
+app.use(express.static('./dist/project/'))
+app.get('/*', function(req,res) {res.sendFile(path.join(__dirname + '/dist/project/index.html'))})
 
 
 

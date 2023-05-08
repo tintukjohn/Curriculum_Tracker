@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-mongoose.connect(process.env.MONGO_URL,{
+mongoose.connect('mongodb+srv://ictakpjtteam2:abcd1234@cluster0.lvcvrya.mongodb.net/curriculum_tracker?retryWrites=true&w=majority',{
    useNewUrlParser:true,
    useUnifiedTopology:true
 })
