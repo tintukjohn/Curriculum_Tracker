@@ -3,7 +3,7 @@ import { ApiService } from 'src/app/api.service';
 import { Router, NavigationExtras } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog'
 import { PopUpComponent } from '../pop-up/pop-up.component';
-
+import {AuthService} from'../../auth-service.service'
 
 @Component({
   selector: 'app-faculty-dashboard',
@@ -12,7 +12,13 @@ import { PopUpComponent } from '../pop-up/pop-up.component';
 })
 export class FacultyDashboardComponent {
 
-  constructor(private apiService: ApiService, private route: Router, private dialog: MatDialog) { }
+
+  user = {
+    username:'',
+    id:''
+  }
+
+  constructor(private apiService: ApiService, private route: Router, private dialog: MatDialog, private authService:AuthService ) { }
   requirements: any = []
   filteredRequirements: any = [];
   searchTerm!: string;
