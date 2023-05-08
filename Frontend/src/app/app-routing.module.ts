@@ -20,6 +20,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { EditModalComponent } from './pages/edit-modal/edit-modal.component';
 import { ApprovedListComponent } from './faculty/approved-list/approved-list.component';
+import { AuthguardGuard } from './authguard.guard';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
@@ -27,12 +28,12 @@ const routes: Routes = [
   {path: 'dashboard', component:DashboardComponent},
   {path: 'login', component:LoginComponent},
   {path: 'contact', component:ContactComponent},
-  {path: 'faculty-main', component:FacultyMainComponent},
+  {path: 'faculty-main', component:FacultyMainComponent, canActivate:[ AuthguardGuard ]},
   {path: 'faculty-header', component:FacultyHeaderComponent},
   {path: 'faculty-dashboard', component:FacultyDashboardComponent},
   {path: 'response-form/:id', component:ResponseFormComponent},
   {path: 'faculty-footer', component:FacultyFooterComponent},
-  {path: 'admindashboard', component: AdminDashboardComponent},
+  {path: 'admindashboard', component: AdminDashboardComponent, canActivate:[ AuthguardGuard ]},
   {path: 'sidenav', component: SidenavComponent},
   {path: 'form', component: FormComponent},
   {path: 'submission', component : SubmissionsComponent},
@@ -41,7 +42,6 @@ const routes: Routes = [
   {path: 'footer', component: FooterComponent},
   {path: 'edit-modal/:id', component: EditModalComponent},
   {path: 'approved-list', component: ApprovedListComponent}
-
 ];
 
 @NgModule({
