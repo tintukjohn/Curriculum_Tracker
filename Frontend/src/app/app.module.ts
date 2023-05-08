@@ -32,6 +32,7 @@ import { MatIconModule} from '@angular/material/icon';
 import { MatButtonModule} from '@angular/material/button';
 import { PopUpComponent } from './faculty/pop-up/pop-up.component';
 import { ApprovedListComponent } from './faculty/approved-list/approved-list.component';
+import { AuthguardGuard } from './authguard.guard';
 
 
 @NgModule({
@@ -71,7 +72,7 @@ import { ApprovedListComponent } from './faculty/approved-list/approved-list.com
     MatIconModule,
     MatButtonModule
   ],
-  providers: [ApiService,AuthService],
+  providers: [ApiService,AuthService,AuthguardGuard],
   
   bootstrap: [AppComponent]
 })

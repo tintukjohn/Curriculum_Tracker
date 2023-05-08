@@ -1,13 +1,16 @@
-import{Injectable} from '@angular/core'
+import { Injectable } from '@angular/core'
 import { BehaviorSubject } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService{
+ 
   userInfo:BehaviorSubject<any> = new BehaviorSubject(null);
   jwtHelper = new JwtHelperService();
 
-  userLogin(userPayload:any){
+  userLogin(userPayload?:any): boolean{
     console.log(userPayload)
     const accesstoken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRlc3QiLCJzdWIiOjIsImlhdCI6MTYwNDMwOTc0OSwiZXhwIjoxNjA0MzA5ODA5fQ.jHez9kegJ7GT1AO5A2fQp6Dg9A6PBmeiDW1YPaCQoYs";
     const refreshtoken = "dummy";
@@ -28,5 +31,7 @@ export class AuthService{
     };
 
     this.userInfo.next(data);
+
+    return true;
   }
 }
