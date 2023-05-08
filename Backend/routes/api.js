@@ -14,9 +14,10 @@ const bcrypt = require('bcrypt');
 router.get('/fulllist/:_id', async (req, res) => {
     try {
         const list = await
-            db.curriculum_tracker.aggregate([{ $lookup: { from: 'requirement', localField: 'req_id', foreignField: "_id", as: 'resp' } }])
+        REQ_DATA.aggregate([{ $lookup: { from: 'requirement', localField: 'req_id', foreignField: "_id", as: 'resp' } }])
+        res.send(list)
     } catch (error) {
-
+        console.log(error)
     }
 })
 
@@ -24,7 +25,7 @@ router.get('/fulllist/:_id', async (req, res) => {
 router.get('/requirementlist', async (req, res) => {
     try {
 
-        const list = await REQ_DATA.find()
+        const list = await REQ_DATA.find().sort({ date: -1 })
         res.send(list)
 
     } catch (error) {
@@ -87,7 +88,7 @@ router.put('/require/:id', async (req, res) => {
 router.get('/responselist', async (req, res) => {
     try {
 
-        const fact = await RES_DATA.find()
+        const fact = await RES_DATA.find().sort({ date: -1 })
         res.send(fact);
 
     } catch (error) {

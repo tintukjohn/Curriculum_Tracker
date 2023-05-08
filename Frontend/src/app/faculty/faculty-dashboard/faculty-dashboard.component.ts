@@ -25,23 +25,20 @@ export class FacultyDashboardComponent implements OnInit {
   searchTerm!: string;
   response: any = []
   responseSubmitted: Boolean = false
-  id: any 
+  id: any
 
   ngOnInit(): void {
     this.getData()
-   // this.getResponse(this.id)
     this.authService.userInfo.subscribe(value => {
       if (value) {
         this.user.id = value.userid;
         this.user.username = value.username
       }
     })
-
   }
 
-  getData() {
-    this.apiService.getRequirementsList().subscribe(res => {
-      // this.apiService.getFullList().subscribe(res => {
+  getSingleDetails(id: any) {
+    this.apiService.getFullList(id).subscribe(res => {
       console.log('incoming data', res)
       this.requirements = res;
       this.filteredRequirements = res;
@@ -49,16 +46,15 @@ export class FacultyDashboardComponent implements OnInit {
     })
   }
 
-  // getResponse(id: any) {
-  //   //const id = this.requirements._id
-  //   console.log(id)
-  //   this.apiService.getOneRes(id).subscribe(res => {
-  //     //console.log('incoming data', res)
-  //     this.response = res;
-  //     if (this.response.responsed) { return false}
-  //   })
-  //   // this.route.navigate([/response-form/id])
-  // }
+
+  getData() {
+    this.apiService.getRequirementsList().subscribe(res => {
+      console.log('incoming data', res)
+      this.requirements = res;
+      this.filteredRequirements = res;
+      this.id = this.requirements._id
+    })
+  }
 
   search() {
     this.filteredRequirements = this.requirements.filter((requirement: { area: string; name: string; category: string; inst: string; }) => {

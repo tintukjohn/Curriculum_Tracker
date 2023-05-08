@@ -60,8 +60,8 @@ export class ApiService {
     return this.http.get(`${this.apiUrl}/response/${id}`)
   }
 
-  getFullList(){
-    return this.http.get(`${this.apiUrl}/fulllist`)
+  getFullList(id: any){
+    return this.http.get(`${this.apiUrl}/fulllist/${id}`)
   }
   //register
 
