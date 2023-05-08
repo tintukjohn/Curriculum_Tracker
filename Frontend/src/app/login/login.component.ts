@@ -40,13 +40,25 @@ export class LoginComponent implements OnInit{
  userLogin(){
 
   
-  this.authservice.userLogin(this.signin);
-  alert("user logged in successfully");
-  this.route.navigate(['../faculty']);
+  // this.authservice.userLogin(this.signin);
+  // alert("user logged in successfully");
+  // this.route.navigate(['../faculty-main']);
 
   if(this.signin.valid){
 
     console.log(this.signin.value)
+    
+    if (this.signin.value.email === 'admin@gmail.com' && this.signin.value.password === 'admin1234') {
+      // login as admin
+      alert('Admin logged in successfully');
+      this.route.navigate(['../admindashboard']);
+    } else {
+      // login as user
+      this.authservice.userLogin(this.signin);
+      alert('User logged in successfully');
+      this.route.navigate(['../faculty-main']);
+    }
+
     // send the object to database
   }else{
     
