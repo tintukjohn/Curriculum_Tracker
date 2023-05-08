@@ -9,6 +9,8 @@ const ResponseSchema = new Schema({
     fileDetails : {type : Object, required: true},
     req_id : {type : String, required: true},
     approve : {type : Boolean, required: true},
+    responsed : {type : Boolean, required: true, default: true},
+
 })
 
 let ResponsesData = mongoose.model('response', ResponseSchema)

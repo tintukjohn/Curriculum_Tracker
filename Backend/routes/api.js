@@ -11,6 +11,15 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 
+router.get('/fulllist/:_id', async (req, res) => {
+    try {
+        const list = await
+            db.curriculum_tracker.aggregate([{ $lookup: { from: 'requirement', localField: 'req_id', foreignField: "_id", as: 'resp' } }])
+    } catch (error) {
+
+    }
+})
+
 // requirement list
 router.get('/requirementlist', async (req, res) => {
     try {
@@ -24,7 +33,7 @@ router.get('/requirementlist', async (req, res) => {
 })
 
 //require add
-router.post('/require', async(req,res)=>{
+router.post('/require', async (req, res) => {
     try {
         let item = {
             name: req.body.name,
@@ -44,29 +53,29 @@ router.post('/require', async(req,res)=>{
 })
 
 //require delete
-router.delete('/require/:id', async(req,res)=>{
+router.delete('/require/:id', async (req, res) => {
 
     try {
-    let id = req.params.id;
+        let id = req.params.id;
 
-    const deleteRequire = await REQ_DATA.findByIdAndDelete(id)
-    res.send(deleteRequire)
+        const deleteRequire = await REQ_DATA.findByIdAndDelete(id)
+        res.send(deleteRequire)
     } catch (error) {
-       console.log(error)
+        console.log(error)
     }
 })
 
 // require update
 
 
-router.put('/require/:id', async(req,res) => {
+router.put('/require/:id', async (req, res) => {
 
     try {
-        
+
         let id = req.params.id
         console.log(id);
         let updateData = req.body
-        let updateRequire = await REQ_DATA.findByIdAndUpdate({_id:id}, {$set:updateData})
+        let updateRequire = await REQ_DATA.findByIdAndUpdate({ _id: id }, { $set: updateData })
         res.send(updateRequire)
 
     } catch (error) {
@@ -75,9 +84,9 @@ router.put('/require/:id', async(req,res) => {
 })
 
 //response list
-router.get('/responselist',async(req,res)=>{
+router.get('/responselist', async (req, res) => {
     try {
-        
+
         const fact = await RES_DATA.find()
         res.send(fact);
 
@@ -88,23 +97,23 @@ router.get('/responselist',async(req,res)=>{
 
 // get one response
 
-router.get('/response/:id', async(req,res)=>{
+router.get('/response/:id', async (req, res) => {
     try {
-    
-let id = req.params.id
-const singleRes = await RES_DATA.findById(id)
-res.send(singleRes)
+
+        let id = req.params.id
+        const singleRes = await RES_DATA.findById(id)
+        res.send(singleRes)
 
     } catch (error) {
-       console.log(error);
+        console.log(error);
     }
 })
 
 //response add
-router.post('/response', async(req,res)=>{
+router.post('/response', async (req, res) => {
     try {
-        let term= {
-            comments : req.body.comments,
+        let term = {
+            comments: req.body.comments,
             doc: req.body.doc,
             fileDetails: req.body.fileDetails,
             req_id: req.body.req_id,
@@ -121,28 +130,28 @@ router.post('/response', async(req,res)=>{
 })
 
 //response delete
-router.delete('/response/:id', async(req,res)=>{
+router.delete('/response/:id', async (req, res) => {
 
     try {
-    let id = req.params.id;
+        let id = req.params.id;
 
-    const deleteResponse = await RES_DATA.findByIdAndDelete(id)
-    res.send(deleteResponse)
+        const deleteResponse = await RES_DATA.findByIdAndDelete(id)
+        res.send(deleteResponse)
     } catch (error) {
-       console.log(error)
+        console.log(error)
     }
 })
 
 
 // response update
-router.put('/response/:id', async(req,res) => {
+router.put('/response/:id', async (req, res) => {
 
     try {
-        
+
         let id = req.params.id
         console.log(id);
         let updateData = req.body
-        let updateResponse = await RES_DATA.findByIdAndUpdate({_id:id}, {$set:updateData})
+        let updateResponse = await RES_DATA.findByIdAndUpdate({ _id: id }, { $set: updateData })
         res.send(updateResponse)
 
     } catch (error) {
@@ -154,27 +163,27 @@ router.put('/response/:id', async(req,res) => {
 
 // user signup using bcrypt library
 
-router.post('/register',(req,res)=>{
+router.post('/register', (req, res) => {
 
-    bcrypt.hash(req.body.password, 10, (err, hash)=>{
-        if(err){
-            return res.json({success:false, message:"Hash error !"})
-        }else{
+    bcrypt.hash(req.body.password, 10, (err, hash) => {
+        if (err) {
+            return res.json({ success: false, message: "Hash error !" })
+        } else {
             const user = new USER_DATA({
                 name: req.body.name,
                 email: req.body.email,
                 password: req.body.password
             })
             user.save()
-            .then((_)=>{
-                res.json({success:true, message:"Account Has been Created"})
-            })
-            .catch((err)=>{
-                if(err.code == 11000){
-                    return res.json({success:false, message:"Email Already exsist"})
-                }
-                res.json({success:false, message:"Authentication failed"})
-            })
+                .then((_) => {
+                    res.json({ success: true, message: "Account Has been Created" })
+                })
+                .catch((err) => {
+                    if (err.code == 11000) {
+                        return res.json({ success: false, message: "Email Already exsist" })
+                    }
+                    res.json({ success: false, message: "Authentication failed" })
+                })
         }
     })
 
