@@ -1,24 +1,37 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { Router, NavigationExtras } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog'
 import { PopUpComponent } from '../pop-up/pop-up.component';
-
+import {AuthService} from'../../auth-service.service'
 
 @Component({
   selector: 'app-faculty-dashboard',
   templateUrl: './faculty-dashboard.component.html',
   styleUrls: ['./faculty-dashboard.component.css']
 })
-export class FacultyDashboardComponent {
+export class FacultyDashboardComponent implements OnInit {
 
-  constructor(private apiService: ApiService, private route: Router, private dialog: MatDialog) { }
+
+  user = {
+    username:'',
+    id:''
+  }
+
+  constructor(private apiService: ApiService, private route: Router, private dialog: MatDialog, private authService:AuthService ) { }
+ 
   requirements: any = []
   filteredRequirements: any = [];
   searchTerm!: string;
 
   ngOnInit(): void {
     this.getData()
+    this.authService.userInfo.subscribe(value => {
+      if(value){
+        this.user.id = value.userid;
+      this.user.username = value.username}
+    })
+
   }
 
   getData() {

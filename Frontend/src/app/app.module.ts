@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {AuthService} from'./auth-service.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -32,6 +32,7 @@ import { MatIconModule} from '@angular/material/icon';
 import { MatButtonModule} from '@angular/material/button';
 import { PopUpComponent } from './faculty/pop-up/pop-up.component';
 import { ApprovedListComponent } from './faculty/approved-list/approved-list.component';
+
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { ApprovedListComponent } from './faculty/approved-list/approved-list.com
     MatIconModule,
     MatButtonModule
   ],
-  providers: [ApiService],
+  providers: [ApiService,AuthService],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
