@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../api.service';
 import {AuthService} from'../auth-service.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit{
 
  
 
-  constructor(private authservice:AuthService){}
+  constructor(private authservice:AuthService, private route:Router){}
 
   ngOnInit(): void {
     
@@ -31,12 +32,17 @@ export class LoginComponent implements OnInit{
     return this.signin.controls
   }
 
+   loginData ={
+    username: '',
+    password:''
+   };
 
  userLogin(){
 
   
-  this.authservice.userLogin(this.signin)
-  alert("user logged in successfully")
+  this.authservice.userLogin(this.signin);
+  alert("user logged in successfully");
+  this.route.navigate(['../faculty']);
 
   if(this.signin.valid){
 
